@@ -15,7 +15,9 @@ html {
  * making all elements inheriting from the root box-sizing value
  * See: https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/
  */
-*, *::before, *::after {
+*,
+*::after,
+*::before {
   box-sizing: inherit;
 }
 
@@ -26,10 +28,10 @@ a {
   color: $text-color;
   text-decoration: none;
 
-  @include on-event {
-    color: $text-color;
-    text-decoration: underline;
-  }
+  // @include on-event {
+  //   color: $text-color;
+  //   text-decoration: underline;
+  // }
 }
 
 body,

@@ -27,11 +27,11 @@ gulp.task('sass', function () {
   return gulp.src('app/scss/main.scss')
     .pipe(sourcemaps.init())
     .pipe(sass({
-        outputStyle: 'compressed'
+        outputStyle: 'nested'
       })
       .on('error', notify.onError(function (err) {
         return {
-          title: 'error',
+          title: 'u got an error',
           message: err.message
         };
       })))

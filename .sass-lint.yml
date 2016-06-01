@@ -61,7 +61,10 @@ rules:
   hex-notation: 1
   indentation: 1
   leading-zero: 1
-  nesting-depth: 1
+  nesting-depth:
+    - 1
+    -
+      max-depth: 4
   property-sort-order: 0
   quotes: 1
   shorthand-values: 1

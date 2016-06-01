@@ -7,17 +7,18 @@
 /// @param {Bool} $self [false] - Whether or not to include current selector
 /// @link https://twitter.com/csswizardry/status/478938530342006784 Original tweet from Harry Roberts
 @mixin on-event($self: false) {
-  @if $self {
+   @if $self{
     &,
-    &:hover,
     &:active,
-    &:focus {
+    &:focus,
+    &:hover {
       @content;
     }
-  } @else {
-    &:hover,
+  }
+  @else {
     &:active,
-    &:focus {
+    &:focus,
+    &:hover {
       @content;
     }
   }
@@ -40,24 +41,18 @@
 
 // Bourbon position mixin
 @mixin position($position: relative, $coordinates: null null null null) {
-  @if type-of($position) == list {
+   @if type-of($position) == list{
     $coordinates: $position;
     $position: relative;
   }
 
   $coordinates: unpack($coordinates);
 
-  $offsets: (
-    top:    nth($coordinates, 1),
-    right:  nth($coordinates, 2),
-    bottom: nth($coordinates, 3),
-    left:   nth($coordinates, 4)
-  );
+  $offsets: ( top: nth($coordinates, 1), right: nth($coordinates, 2), bottom: nth($coordinates, 3), left: nth($coordinates, 4) );
 
   position: $position;
-
   @each $offset, $value in $offsets {
-    @if is-length($value) {
+     @if is-length($value){
       #{$offset}: $value;
     }
   }
@@ -67,29 +62,38 @@
 $smartphone: 480px;
 $tabletPortrait: 767px;
 $tabletLandscape: 1024px;
-$desktop: 1174px;
+$desktop: 1024px;
 $largeScreen: 1400px;
 @mixin respondTo($media) {
-  @if $media == smartphone {
-    @media (max-width: $smartphone) { @content; }
+   @if $media == smartphone{
+    @media (max-width: $smartphone) {
+       @content;
+    }
   }
   @else if $media == tablet {
-    @media (min-width: $tabletPortrait) and (max-width: $tabletLandscape) { @content; }
+     @media (min-width: $tabletPortrait) and (max-width: $tabletLandscape){
+      @content;
+    }
   }
   @else if $media == smallScreen {
-    @media (max-width: $desktop) { @content; }
+     @media (max-width: $desktop){
+      @content;
+    }
   }
   @else if $media == desktop {
-    @media (min-width: $desktop) { @content; }
+     @media (min-width: $desktop){
+      @content;
+    }
   }
 }
 
 //Ghost Vertical Align
-@mixin ghostVerticalAlign(){
+@mixin ghostVerticalAlign() {
   &:before {
     content: '';
     display: inline-block;
     vertical-align: middle;
-    height: 100%; width: .1px;
+    height: 100%;
+    width: .1px;
   }
 }
