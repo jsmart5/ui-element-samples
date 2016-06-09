@@ -65,6 +65,15 @@ gulp.task('images', function () {
     }));
 });
 
+//Copy normalize.css
+gulp.task('normalize', function () {
+  return gulp.src('app/scss/normalize.css')
+    .pipe(gulp.dest('dist/css'))
+    .pipe(browserSync.reload({
+      stream: true
+    }));
+});
+
 gulp.task('watch', function () {
   gulp.watch('app/*.html', gulp.series('html', 'useref'))
   gulp.watch('app/scss/**/*.scss', gulp.series('sass'))
@@ -87,7 +96,7 @@ gulp.task('clean', function () {
 //Build task
 gulp.task('build', gulp.series(
   'clean',
-  gulp.parallel('html', 'sass', 'useref', 'images')));
+  gulp.parallel('html', 'normalize', 'sass', 'useref', 'images')));
 
 //Default gulp task
 gulp.task('default',
