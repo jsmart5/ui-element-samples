@@ -64,3 +64,10 @@ bower_components
 dist
 .tmp
 *.psd
+.htmlhintrc
+.jsbeautifyrc
+.jshintrc
+.sass-lint.yml
+.stylelintrc
+gulpfile.js
+package.json

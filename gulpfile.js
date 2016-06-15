@@ -16,7 +16,7 @@ const del = require('del');
 //Handles html files
 gulp.task('html', function () {
   return gulp.src('app/index.html')
-    .pipe(gulp.dest('dist'))
+    .pipe(gulp.dest('.'))
     .pipe(browserSync.reload({
       stream: true
     }));
@@ -50,7 +50,7 @@ gulp.task('useref', function () {
   return gulp.src('app/*.html')
     .pipe(useref())
     .pipe(gulpIf('*.js', uglify()))
-    .pipe(gulp.dest('dist'))
+    .pipe(gulp.dest('.'))
     .pipe(browserSync.reload({
       stream: true
     }));
@@ -84,19 +84,20 @@ gulp.task('watch', function () {
 //Spins up a web server with live-reloading
 gulp.task('serve', function () {
   browserSync.init({
-    server: 'dist'
+    server: '.'
   });
 });
 
 //Cleans up build folder
 gulp.task('clean', function () {
-  return del('dist');
+  del('dist');
+  return del('index.html');
 });
 
 //Build task
 gulp.task('build', gulp.series(
-  'clean',
-  gulp.parallel('html', 'normalize', 'sass', 'useref', 'images')));
+  'clean', 'html',
+  gulp.parallel('normalize', 'sass', 'useref', 'images')));
 
 //Default gulp task
 gulp.task('default',
