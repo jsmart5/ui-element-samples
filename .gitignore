@@ -61,7 +61,6 @@ bower_components
 .bower-tmp
 
 #Building process
-dist
 .tmp
 *.psd
 .htmlhintrc
