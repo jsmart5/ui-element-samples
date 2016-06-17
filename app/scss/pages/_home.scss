@@ -1,0 +1,19 @@
+// -----------------------------------------------------------------------------
+// This file contains styles that are specific to the home page.
+// -----------------------------------------------------------------------------
+
+.container {
+  @extend %container;
+  margin-top: 2vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.caption {
+  width: 667px;
+  color: black;
+  font-size: 16px;
+  font-weight: 400;
+  max-width: 100%;
+}
