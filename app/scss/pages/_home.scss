@@ -10,6 +10,14 @@
   align-items: center;
 }
 
+.avatar {
+  width: 250px;
+
+  @media screen and (max-width: 500px) {
+    max-width: 70%;
+  }
+}
+
 .caption {
   width: 667px;
   color: black;
