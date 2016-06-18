@@ -110,8 +110,6 @@
       display: block;
       text-decoration: none;
       padding: 0 16px;
-      //Remove blue highlight when tapping links. http://stackoverflow.com/questions/11885161/remove-grey-background-on-link-clicked-in-ios-safari#answers
-      -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
       transition: background-color .25s ease-in-out;
 
       @media screen and (min-width: 1024px) {

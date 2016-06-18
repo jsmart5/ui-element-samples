@@ -32,4 +32,13 @@ html {
 a {
   color: $text-color;
   text-decoration: none;
+  //Remove blue highlight when tapping links. http://stackoverflow.com/questions/11885161/remove-grey-background-on-link-clicked-in-ios-safari#answers
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+button {
+  //Removes yellow outline in chrome
+  &:focus {
+    outline: none;
+  }
 }
