@@ -63,10 +63,3 @@ bower_components
 #Building process
 .tmp
 *.psd
-.htmlhintrc
-.jsbeautifyrc
-.jshintrc
-.sass-lint.yml
-.stylelintrc
-gulpfile.js
-package.json
