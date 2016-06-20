@@ -7,16 +7,26 @@ const imagemin = require('gulp-imagemin');
 const sourcemaps = require('gulp-sourcemaps');
 const postcss = require('gulp-postcss');
 const autoprefixer = require('autoprefixer');
-const notify = require("gulp-notify");
+const notify = require('gulp-notify');
 const useref = require('gulp-useref');
 const uglify = require('gulp-uglify');
 const gulpIf = require('gulp-if');
 const del = require('del');
 
-//Handles html files
-gulp.task('html', function () {
+//Handles index.html file
+gulp.task('index-html', function () {
   return gulp.src('app/index.html')
     .pipe(gulp.dest('.'))
+    .pipe(browserSync.reload({
+      stream: true
+    }));
+});
+
+//Handles other html files
+gulp.task('html', function () {
+  //Takes all html files except index.html
+  return gulp.src(['app/*.html', '!app/index.html'])
+    .pipe(gulp.dest('dist'))
     .pipe(browserSync.reload({
       stream: true
     }));
@@ -75,7 +85,7 @@ gulp.task('normalize', function () {
 });
 
 gulp.task('watch', function () {
-  gulp.watch('app/*.html', gulp.series('html', 'useref'))
+  gulp.watch('app/*.html', gulp.series('index-html', 'html', 'useref'))
   gulp.watch('app/scss/**/*.scss', gulp.series('sass'))
   gulp.watch('app/scripts/**/*.js', gulp.series('useref'))
   gulp.watch('app/images/**/*.+(png|jpg|jpeg|gif|svg)', gulp.series('images'));
@@ -96,10 +106,16 @@ gulp.task('clean', function () {
 
 //Build task
 gulp.task('build', gulp.series(
-  'clean', 'html',
+  'clean', 'index-html', 'html',
   gulp.parallel('normalize', 'sass', 'useref', 'images')));
 
 //Default gulp task
 gulp.task('default',
   gulp.series('build', gulp.parallel('watch', 'serve'))
 );
+
+// gulp.task('hash', function() {
+//     return gulp.src(['**/*.html', 'dist/**/*.css'])
+//         .pipe(hash_src({build_dir: 'dist', src_path: 'dist'}))
+//         .pipe(gulp.dest('hash'))
+// });
