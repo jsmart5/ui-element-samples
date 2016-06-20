@@ -26,7 +26,7 @@ gulp.task('index-html', function () {
 gulp.task('html', function () {
   //Takes all html files except index.html
   return gulp.src(['app/*.html', '!app/index.html'])
-    .pipe(gulp.dest('dist'))
+    .pipe(gulp.dest('./dist'))
     .pipe(browserSync.reload({
       stream: true
     }));

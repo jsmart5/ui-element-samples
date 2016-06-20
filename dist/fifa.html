@@ -4,10 +4,10 @@
   <meta charset='utf-8'>
   <meta name='author' content='Artem Marochkanych' />
   <meta name='viewport' content='width=device-width,minimum-scale=1'>
-  <title>Назар Маланка</title>
+  <title>FIFA</title>
   <link href='https://fonts.googleapis.com/icon?family=Material+Icons' rel='stylesheet'>
-  <link href='dist/css/normalize.css' rel='stylesheet'>
-  <link href='dist/css/main.css' rel='stylesheet'>
+  <link href='css/normalize.css' rel='stylesheet'>
+  <link href='css/main.css' rel='stylesheet'>
   <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
 </head>
 <body>
@@ -23,26 +23,16 @@
       </header>
       <ul class='side-nav__content'>
         <li><a href='index.html'>Головна сторінка</a></li>
-        <li><a href='dist/fifa.html'>FIFA</a></li>
+        <li><a href='fifa.html'>FIFA</a></li>
         <li><a href='index1.html'>index1</a></li>
         <li><a href='index2.html'>index2</a></li>
         <li><a href='index3.html'>index3</a></li>
       </ul>
     </nav>
   </aside>
-
-  <div class='container'>
-    <img class='avatar' src='dist/images/avatar.png'>
-    <p class='caption'>
-      Я, Маланка Назар Романович народився 28 листопада 1999 року в місті Дрогобич, Львівської області.
-    </p>
-    <p class='caption'>
-      У 2015 році закінчив середню школу №4 в Дрогобичі.
-    </p>
-    <p class='caption'>
-      У тому ж році був зарахований на навчання у ВПУ-19 м.Дрогобича за спеціальністю оператор комп’ютерного набору електромеханік.
-    </p>
-  </div>
-  <script src="dist/scripts/main.min.js"></script>
+  <div class="fifa-wrapper"></div>
+  <!--build:js dist/scripts/main.min.js -->
+  <script src='scripts/main.js'></script>
+  <!-- endbuild -->
 </body>
 </html>
