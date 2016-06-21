@@ -1,0 +1,30 @@
+.contacts-wrapper {
+  height: calc(100vh - 64px);
+
+  @extend %container;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+
+  a {
+    margin-left: 20px;
+    margin-right: 20px;
+    width: 150px;
+    height: 150px;
+
+    svg {
+      // will-change: transform; Discover why this property causes unexpected behaviour
+      border-radius: 50%;
+      box-shadow: 0 17px 10px -10px rgba(0, 0, 0, .4);
+      transition: transform ease-in-out 300ms, box-shadow ease-in-out 300ms;
+
+      &:hover {
+        box-shadow: 0 37px 20px -20px rgba(0, 0, 0, .2);
+        transform: translate(0, -15px);
+
+      }
+    }
+  }
+}
