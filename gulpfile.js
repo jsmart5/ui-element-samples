@@ -13,20 +13,11 @@ const uglify = require('gulp-uglify');
 const gulpIf = require('gulp-if');
 const del = require('del');
 
-//Handles index.html file
-gulp.task('index-html', function () {
-  return gulp.src('app/index.html')
-    .pipe(gulp.dest('.'))
-    .pipe(browserSync.reload({
-      stream: true
-    }));
-});
-
-//Handles other html files
+//Handles html files
 gulp.task('html', function () {
   //Takes all html files except index.html
-  return gulp.src(['app/*.html', '!app/index.html'])
-    .pipe(gulp.dest('./dist'))
+  return gulp.src('app/*.html')
+    .pipe(gulp.dest('.'))
     .pipe(browserSync.reload({
       stream: true
     }));
@@ -85,7 +76,7 @@ gulp.task('normalize', function () {
 });
 
 gulp.task('watch', function () {
-  gulp.watch('app/*.html', gulp.series('index-html', 'html', 'useref'))
+  gulp.watch('app/*.html', gulp.series('html', 'useref'))
   gulp.watch('app/scss/**/*.scss', gulp.series('sass'))
   gulp.watch('app/scripts/**/*.js', gulp.series('useref'))
   gulp.watch('app/images/**/*.+(png|jpg|jpeg|gif|svg)', gulp.series('images'));
@@ -106,7 +97,7 @@ gulp.task('clean', function () {
 
 //Build task
 gulp.task('build', gulp.series(
-  'clean', 'index-html', 'html',
+  'clean', 'html',
   gulp.parallel('normalize', 'sass', 'useref', 'images')));
 
 //Default gulp task
