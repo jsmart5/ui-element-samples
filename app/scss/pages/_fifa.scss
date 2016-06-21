@@ -1,7 +1,39 @@
 html.fifa {
   height: 100vh;
   width: 100vw;
-  background: url(../images/fifa@1x.jpg) no-repeat center center;
+  background: url('../images/fifa@1x.jpg') no-repeat center center;
   background-size: cover;
   max-width: 100%;
+}
+
+.fifa-wrapper {
+  display: flex;
+  align-items: center;
+  width: 90%;
+  height: 90vh;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.fifa-wrapper-inner {
+  display: flex;
+  flex-direction: column;
+  text-shadow: 0 0 6px rgba(0, 0, 0, .75);
+  color: white;
+  font-weight: 400;
+  max-width: 50%;
+  font-size: 18px;
+
+  p span {
+    font-weight: 700;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  @media screen and (max-width: 540px) {
+    max-width: 100%;
+  }
 }
