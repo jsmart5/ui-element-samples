@@ -15,7 +15,7 @@
     height: 150px;
 
     svg {
-      // will-change: transform; Discover why this property causes unexpected behaviour
+      // will-change: transform; //Discover why this property causes unexpected behaviour
       border-radius: 50%;
       box-shadow: 0 17px 10px -10px rgba(0, 0, 0, .4);
       transition: transform ease-in-out 300ms, box-shadow ease-in-out 300ms;
